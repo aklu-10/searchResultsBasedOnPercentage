@@ -1,0 +1,37 @@
+let db = ["JavaScript is good", "Java", "JavaScript is awesome", "JavaScript is fabulous"];
+let query = "Javascirt"
+
+function matchPercentage(string, query, matchPercent)
+{
+    let results = string.filter(data=>
+    {
+        let words=data.split(" ");
+        let flag=[];
+        words.map(word=>
+        {
+            let overallPercentage=0;
+            let len = word.length;
+            let mult=len; 
+            [...word].map(char=>
+            {
+                if(query.includes(char))
+                {
+                    overallPercentage=100*(mult)
+                    mult+=len;
+                }
+            })
+            
+            if(parseInt(overallPercentage/100)>=matchPercent)
+            {
+                flag.push(1);
+            }
+        })
+        
+        if(flag.filter(val=>val==1).length)
+        return data;
+    })
+    
+    console.log(results)
+}
+
+matchPercentage(db, query, 80);
