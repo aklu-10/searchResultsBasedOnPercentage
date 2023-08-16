@@ -14,7 +14,7 @@ function matchPercentage(string, query, matchPercent)
             let mult=len; 
             [...word].map(char=>
             {
-                if(query.includes(char))
+                if(query.toLowerCase().includes(char.toLowerCase()))
                 {
                     overallPercentage=100*(mult)
                     mult+=len;
